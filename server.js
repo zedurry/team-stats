@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const {application} = require('express')
+const statsController = require('./controllers/team-store')
 
 
 // initialize the express app
@@ -36,6 +37,11 @@ db.on("connected", () => console.log("mongo connected"))
 db.on("disconnected", () => console.log("mongo disconnected"))
 
 // routes ----------------------------------------------------------------
+app.get('/', (req, res) => res.redirect('/team-stats'));
+
+app.use('/team-stats', statsController);
+
+app.get('/*', (req, res) => res.render('404.ejs'));
 
 
 //----------------------------------------------------------------
