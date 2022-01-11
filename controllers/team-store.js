@@ -27,21 +27,66 @@ statsRouter.get('/', (req, res) => {
 	});
 });
 
+statsRouter.get('/scores', (req, res) => {
+    Player.find({}, (error, players) => {
+		res.render('scores.ejs', {players});
+	});
+});
+
+statsRouter.get('/turns', (req, res) => {
+    Player.find({}, (error, players) => {
+		res.render('turns.ejs', {players});
+	});
+});
+
+statsRouter.get('/blocks', (req, res) => {
+    Player.find({}, (error, players) => {
+		res.render('blocks.ejs', {players});
+	});
+});
 
 // New --------------------------------------------------------------------------
+statsRouter.get('/new', (req, res) => {
+	res.render('new.ejs')
+});
 
 // Delete ------------------------------------------------
-
+statsRouter.delete("/:id", (req, res) => {
+	Player.findByIdAndDelete(req.params.id, (err, data) => {
+		res.redirect("/")
+	})
+})
 
 // Update ----------------------------------
-
+statsRouter.put("/:id", (req, res) => {
+	
+	Player.findByIdAndUpdate(
+		req.params.id,
+		req.body,
+		{
+		  new: true,
+		},
+		(error, updatedPlayer) => {
+		  res.redirect(`/team-stats/${req.params.id}`)
+		}
+	  ) 
+     });
 
 
 // Create----------------------------------------------------
+statsRouter.post('/', (req, res) => {
+	Player.create(req.body, (error, newPlayer) => {
+		res.redirect('/');
+	});
+});
 
 
 // Edit ----------------------------------
-
+statsRouter.get("/:id/edit", (req, res) => {
+	Player.findById(req.params.id, (error, player) => {
+	  res.render("edit.ejs", { player })
+	})
+  })
 
 // Show ------------------------------------------------
 statsRouter.get('/:id', (req, res) => {

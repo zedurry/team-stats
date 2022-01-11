@@ -8,12 +8,29 @@
 </head>
 <body>
     <h2>Team Stats</h2>
+    <nav>
+        <a href="/team-stats/new">Add a new Player</a>
+    </nav>
+    <nav>
+        <a href="/team-stats/scores">Scores</a>
+    </nav>
+    <nav>
+        <a href="/team-stats/turns">Turn Overs</a>
+    </nav>
+    <nav>
+        <a href="/team-stats/blocks">Blocks</a>
+    </nav>
     <ul>
         <% players.forEach(player=> { %>
             <li><%=player.name; %> <br />
                 <a href="/team-stats/<%=player._id; %>"> 
                    Stats
                 </a>
+                <form class= delete action="/team-stats/<%= player.id %>?_method=DELETE" method="post" >
+                    <input type="submit" value="DELETE" />
+                </form>
+                <a href="/team-stats/<%=player._id; %>/edit">Edit</a><br />
+
             </li>
             <% }) %>
     </ul>

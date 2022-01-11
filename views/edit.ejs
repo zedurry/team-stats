@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Edit <%= player.name %> </h2>
+    <form action="/team-stats/<%=player._id%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name"  value='<%=player.name  %>'/><br />
+        Assists: <input type="number" name="assists" value='<%=player.assists  %>' /> <br />
+        Goals: <input type="number" name="goals" value='<%=player.goals  %>' /> <br />
+        Blocks: <input type="number" name="blocks" value='<%=player.blocks  %>' /> <br />
+        Drops: <input type="number" name="drops" value='<%=player.drops  %>' /> <br />
+        Throw Aways: <input type="number" name="throwAways" value='<%=player.throwAways  %>' /> <br />
+        <input type="submit" name="" value="Submit Changes" />
+    </form>
+</body>
+</html>
