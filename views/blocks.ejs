@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Stats</title>
-</head>
+    <%- include('./partials/head.ejs') %> 
 <%let totalBlocks = 0%> 
 
     <%for (let i=0;i<players.length;i++){  %> 
         <%totalBlocks += parseInt(players[i].blocks) }  %> 
 
 <body>
-    <h2>Team Blocks</h2>
-    <h3> Team Blocks: <%= totalBlocks %></h3> </h3>
+    <%- include('./partials/header.ejs') %>
+        <h2>Team Blocks: <%= totalBlocks %></h2>
 
-
-    <nav>
-        <a href="/team-stats/new">Add a new Player</a>
-    </nav>
-    <table>
-        <% for(let i=0; i < players.length; i++) { %>
-            <tr>
-                <td>
-                    <a href="/team-stats/<%= i.id %>">
-                    <%= players[i].name %>
-                </a>
-                </td>
-                <td> Blocks:<%=  players[i].blocks %> </td>
-
-            </tr>
-            <% } %>
-    </table>
-    
+        <div class="table">
+            <table class="table-sortable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blocks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < players.length; i++) { %>
+                        <tr>
+                            <td>
+                                <a href="/team-stats/<%= i.id %>">
+                                    <%= players[i].name %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= players[i].blocks %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
 </body>
+<script src="/js/tablesort.js"></script>
 </html>
+

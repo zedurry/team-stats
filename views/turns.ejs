@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Stats</title>
-</head>
-<%let totalDrops = 0%> 
+<%- include('./partials/head.ejs') %>
+<%let totalDrops=0%>
 
-    <%for (let i=0;i<players.length;i++){  %> 
-        <%totalDrops += parseInt(players[i].drops) }  %> 
+<%for (let i=0;i<players.length;i++){ %>
+    <%totalDrops +=parseInt(players[i].drops) } %>
 
-<%let totalThrowAways = 0%> 
+<%let totalThrowAways=0%>
 
-    <%for (let i=0;i<players.length;i++){  %> 
-        <%totalThrowAways += parseInt(players[i].throwAways) }  %> 
-    
+<%for (let i=0;i<players.length;i++){ %>
+    <%totalThrowAways +=parseInt(players[i].throwAways) } %>
 
 
 <body>
-    <h2>Team Turn Overs</h2>
-    <h3> Team Drops: <%= totalDrops %> </h3>
-    <h3> Team Throw Aways: <%= totalThrowAways %> </h3>
+    <%- include('./partials/header.ejs') %>
 
+        <h2>Team Turn Overs</h2>
+        <h3> Team Drops: <%= totalDrops %>
+        </h3>
+        <h3> Team Throw Aways: <%= totalThrowAways %>
+        </h3>
 
-    <nav>
-        <a href="/team-stats/new">Add a new Player</a>
-    </nav>
-    <table>
-        <% for(let i=0; i < players.length; i++) { %>
-            <tr>
-                <td>
-                    <a href="/team-stats/<%= i.id %>">
-                    <%= players[i].name %>
-                </a>
-                </td>
-                <td> Throw Aways:<%=  players[i].throwAways %> </td>
-                <td> Drops: <%=  players[i].drops %> </td>
+        <div class="table">
+            <table class="table-sortable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Drops</th>
+                        <th>Throw Aways</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < players.length; i++) { %>
+                        <tr>
+                            <td>
+                                <a href="/team-stats/<%= i.id %>">
+                                    <%= players[i].name %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= players[i].drops %>
+                            </td>
+                            <td>
+                                <%= players[i].throwAways %>
+                            </td>
 
-            </tr>
-            <% } %>
-    </table>
-    
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
 </body>
+<script src="/js/tablesort.js"></script>
+
 </html>

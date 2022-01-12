@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Stats</title>
-</head>
-<body>
-    <h2>Team scores</h2>
-    <nav>
-        <a href="/team-stats/new">Add a new Player</a>
-    </nav>
-    <table>
-        <% for(let i=0; i < players.length; i++) { %>
-            <tr>
-                <td>
-                    <a href="/team-stats/<%= i.id %>">
-                    <%= players[i].name %>
-                </a>
-                </td>
-                <td> Assists <%=  players[i].assists %> </td>
-                <td> Goals: <%=  players[i].goals %> </td>
+<%- include('./partials/head.ejs') %>
 
-            </tr>
-            <% } %>
-    </table>
-    
-</body>
+    <body>
+        <%- include('./partials/header.ejs') %>
+
+            <h2>Team scores</h2>
+            <div class="table">
+                <table class="table-sortable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Assists</th>
+                            <th>Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i < players.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <a href="/team-stats/<%= i.id %>">
+                                        <%= players[i].name %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= players[i].assists %>
+                                </td>
+                                <td>
+                                    <%= players[i].goals %>
+                                </td>
+
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+    </body>
+    <script src="/js/tablesort.js"></script>
+
 </html>
