@@ -2,6 +2,17 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %>
 
+<%let totalAssists = 0%> 
+
+    <%for (let i=0;i<players.length;i++){  %> 
+        <%totalAssists += parseInt(players[i].assists) }  %> 
+
+<%let totalGoals = 0%> 
+
+    <%for (let i=0;i<players.length;i++){  %> 
+        <%totalGoals += parseInt(players[i].goals) }  %> 
+
+
     <body>
         <%- include('./partials/header.ejs') %>
 
@@ -19,7 +30,7 @@
                         <% for(let i=0; i < players.length; i++) { %>
                             <tr>
                                 <td>
-                                    <a href="/team-stats/<%= i.id %>">
+                                    <a href="/team-stats/<%= players[i].id %>">
                                         <%= players[i].name %>
                                     </a>
                                 </td>
@@ -32,6 +43,11 @@
 
                             </tr>
                             <% } %>
+                            <tr class="teamStats">
+                                <td>Team Total</td>
+                                <td><%= totalAssists %></td>
+                                <td><%= totalGoals %></td>
+                            </tr>
                     </tbody>
                 </table>
             </div>

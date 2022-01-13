@@ -8,7 +8,7 @@
 
 <body>
     <%- include('./partials/header.ejs') %>
-        <h2>Team Blocks: <%= totalBlocks %></h2>
+        <h2>Team Blocks</h2>
 
         <div class="table">
             <table class="table-sortable">
@@ -22,7 +22,7 @@
                     <% for(let i=0; i < players.length; i++) { %>
                         <tr>
                             <td>
-                                <a href="/team-stats/<%= i.id %>">
+                                <a href="/team-stats/<%= players[i].id %>">
                                     <%= players[i].name %>
                                 </a>
                             </td>
@@ -31,6 +31,10 @@
                             </td>
                         </tr>
                         <% } %>
+                    <tr class="teamStats">
+                        <td>Team Total</td>
+                        <td><%= totalBlocks %></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

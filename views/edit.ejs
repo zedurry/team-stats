@@ -6,12 +6,21 @@
     <h2>Edit <%= player.name %> </h2>
     <form action="/team-stats/<%=player._id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name"  value='<%=player.name  %>'/><br />
-        Assists: <input type="number" name="assists" value='<%=player.assists  %>' /> <br />
-        Goals: <input type="number" name="goals" value='<%=player.goals  %>' /> <br />
-        Blocks: <input type="number" name="blocks" value='<%=player.blocks  %>' /> <br />
-        Drops: <input type="number" name="drops" value='<%=player.drops  %>' /> <br />
-        Throw Aways: <input type="number" name="throwAways" value='<%=player.throwAways  %>' /> <br />
+        <fieldset class="stats-info">
+        <legend>Players Stats</legend>
+        <label for="assists">Assists: </label><br />
+        <input type="number" name="assists" value='<%=player.assists  %>' /> <br />
+        <label for="goals">Goals: </label><br />
+        <input type="number" name="goals" value='<%=player.goals  %>' /> <br />
+        <label for="blocks">Blocks: </label><br />
+        <input type="number" name="blocks" value='<%=player.blocks  %>' /> <br />
+        <label for="drops">Drops: </label><br />
+        <input type="number" name="drops" value='<%=player.drops  %>' /> <br />
+        <label for="throwAways">Throw Aways: </label><br />
+        <input type="number" name="throwAways" value='<%=player.throwAways  %>' /> <br />
+        </fieldset>
         <input type="submit" name="" value="Submit Changes" />
     </form>
 </body>
 </html>
+

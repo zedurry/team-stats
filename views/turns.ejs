@@ -16,10 +16,6 @@
     <%- include('./partials/header.ejs') %>
 
         <h2>Team Turn Overs</h2>
-        <h3> Team Drops: <%= totalDrops %>
-        </h3>
-        <h3> Team Throw Aways: <%= totalThrowAways %>
-        </h3>
 
         <div class="table">
             <table class="table-sortable">
@@ -34,7 +30,7 @@
                     <% for(let i=0; i < players.length; i++) { %>
                         <tr>
                             <td>
-                                <a href="/team-stats/<%= i.id %>">
+                                <a href="/team-stats/<%= players[i].id %>">
                                     <%= players[i].name %>
                                 </a>
                             </td>
@@ -44,9 +40,13 @@
                             <td>
                                 <%= players[i].throwAways %>
                             </td>
-
                         </tr>
                         <% } %>
+                        <tr class="teamStats">
+                            <td>Team Total</td>
+                            <td><%= totalDrops %></td>
+                            <td><%= totalThrowAways %></td>
+                        </tr>
                 </tbody>
             </table>
         </div>
