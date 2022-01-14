@@ -11,9 +11,8 @@ A full CRUD app for keeping  stats for a user abd thier teammates at an Ultimate
 
 
 ## Screenshots and GIFs
-[![Screen-Shot 1](https://i.postimg.cc/Jnb4cCMj/Screen-Shot-2022-01-14-at-12-52-31-AM.png)](https://postimg.cc/dkVYwX70)
-
-[![Screen-Shot 2](https://i.postimg.cc/vTb802Zk/Screen-Shot-2022-01-14-at-12-52-57-AM.png)](https://postimg.cc/5YKM03vS)
+[![Screen-Shot-1](https://i.postimg.cc/0yyYWxWG/Screen-Shot-2022-01-14-at-12-52-31-AM.png)](https://postimg.cc/4mjHnCTn)
+[![Screen-Shot-2](https://i.postimg.cc/s2RVffk7/Screen-Shot-2022-01-14-at-12-52-57-AM.png)](https://postimg.cc/jDZVZTdS)
 ## Getting started
 [Click here to get started](https://zed-team-stats.herokuapp.com/team-stats/61e0b92a758ad2b86c08b840/)
 
