@@ -14,42 +14,49 @@
 
 
     <body>
+        <div class="parent">
         <%- include('./partials/header.ejs') %>
-
-            <h2>Team scores</h2>
-            <div class="table">
-                <table class="table-sortable">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Assists</th>
-                            <th>Goals</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(let i=0; i < players.length; i++) { %>
+        <div class="div2">
+        <h2>Team scores</h2>
+                    <table class="table-sortable">
+                        <thead>
                             <tr>
-                                <td>
-                                    <a href="/team-stats/<%= players[i].id %>">
-                                        <%= players[i].name %>
-                                    </a>
-                                </td>
-                                <td>
-                                    <%= players[i].assists %>
-                                </td>
-                                <td>
-                                    <%= players[i].goals %>
-                                </td>
-
+                                <th>Name</th>
+                                <th>Assists</th>
+                                <th>Goals</th>
                             </tr>
-                            <% } %>
+                        </thead>
+                        <tbody>
+                            <% for(let i=0; i < players.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <a href="/team-stats/<%= players[i].id %>">
+                                            <%= players[i].name %>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <%= players[i].assists %>
+                                    </td>
+                                    <td>
+                                        <%= players[i].goals %>
+                                    </td>
+    
+                                </tr>
+                                <% } %>
+                        </tbody>
+                        <tfoot>
                             <tr class="teamStats">
                                 <td>Team Total</td>
-                                <td><%= totalAssists %></td>
-                                <td><%= totalGoals %></td>
+                                <td>
+                                    <%= totalAssists %>
+                                </td>
+                                <td>
+                                    <%= totalGoals %>
+                                </td>
                             </tr>
-                    </tbody>
-                </table>
+                        </tfoot>
+                    </table>
+            </div>
             </div>
     </body>
     <script src="/js/tablesort.js"></script>

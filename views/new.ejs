@@ -2,26 +2,30 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %> 
 <body>
-    <%- include('./partials/header.ejs') %> 
-
+    <div class="parent">
+    <%- include('./partials/header.ejs') %>
+    <div class="div2">
     <h2>New Player</h2>
-    
-    <form action="/team-stats" method="POST">
-        Name: <input type="text" name="name" /><br />
-        <fieldset class="stats-info">
-        <legend>Players Stats</legend>
-        <label for="assists">Assists: </label><br />
-        <input type="number" name="assists" /> <br />
-        <label for="goals">Goals: </label><br />
-        <input type="number" name="goals" /> <br />
-        <label for="blocks">Blocks: </label><br />
-        <input type="number" name="blocks" /> <br />
-        <label for="drops">Drops: </label><br />
-        <input type="number" name="drops" /> <br />
-        <label for="throwAways">Throw Aways: </label><br />
-        <input type="number" name="throwAways" /> <br />
-        </fieldset>
-        <input type="submit" name="" value="Add Player" />
-    </form>
+    <div class="table">
+            <form action="/team-stats" method="POST">
+                Name: <input type="text" name="name" /><br />
+                <fieldset class="stats-info">
+                    <legend>Players Stats</legend>
+                    <label for="assists">Assists: </label><br />
+                    <input type="number" name="assists" /> <br />
+                    <label for="goals">Goals: </label><br />
+                    <input type="number" name="goals" /> <br />
+                    <label for="blocks">Blocks: </label><br />
+                    <input type="number" name="blocks" /> <br />
+                    <label for="drops">Drops: </label><br />
+                    <input type="number" name="drops" /> <br />
+                    <label for="throwAways">Throw Aways: </label><br />
+                    <input type="number" name="throwAways" /> <br />
+                </fieldset>
+                <input type="submit" name="" value="Add Player" />
+            </form>
+        </div>
+        </div>
+    </div>
 </body>
 </html>

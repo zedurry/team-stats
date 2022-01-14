@@ -41,7 +41,7 @@ app.get('/', (req, res) => res.redirect('/team-stats'));
 
 app.use('/team-stats', statsController);
 
-app.get('/*', (req, res) => res.render('404.ejs'));
+app.get('*', (req, res) => res.render('404.ejs'));
 
 
 //----------------------------------------------------------------

@@ -2,23 +2,36 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %> 
 <body>
-    <%- include('./partials/header.ejs') %> 
+    <div class="parent">
+    <%- include('./partials/header.ejs') %>
+        <div class="div2">
 
-    <h2>Team Members</h2>
-
-    <ul>
-        <% players.forEach(player=> { %>
-            <li> 
-                <a href="/team-stats/<%=player._id; %>"> 
-                    <%=player.name; %>
-                </a>
-                <form class= delete action="/team-stats/<%= player.id %>?_method=DELETE" method="post" >
-                    <input type="submit" value="DELETE" />
-                </form>
-                <a href="/team-stats/<%=player._id; %>/edit">Edit</a><br />
-
-            </li>
-            <% }) %>
-    </ul>
+            <h2>Roster</h2>
+            <table class="index" >
+            <% for(let i=0; i < players.length; i++) { %>
+                <tr>
+                    <td>
+                        <a href="/team-stats/<%= players[i].id %>">
+                            <%= players[i].name %>
+                        </a>
+                    </td>
+                    <td>
+                        <form class=delete action="/team-stats/<%= players[i].id %>?_method=DELETE" method="post">
+                            <input type="submit" value="DELETE" />
+                        </form>
+                    </td>
+                    <td>
+                        <a href="/team-stats/<%=players[i]._id; %>/edit">Edit</a>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+            <nav class="new">
+                <a href="/team-stats/new">Add a New Player</a>
+            </nav>
+        
+        </div>
+        </div>
 </body>
 </html>
+

@@ -13,42 +13,49 @@
 
 
 <body>
+    <div class="parent">
     <%- include('./partials/header.ejs') %>
-
-        <h2>Team Turn Overs</h2>
-
-        <div class="table">
-            <table class="table-sortable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Drops</th>
-                        <th>Throw Aways</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for(let i=0; i < players.length; i++) { %>
+        <div class="div2">
+            <h2>Team Turn Overs</h2>
+                <table class="table-sortable">
+                    <thead>
                         <tr>
-                            <td>
-                                <a href="/team-stats/<%= players[i].id %>">
-                                    <%= players[i].name %>
-                                </a>
-                            </td>
-                            <td>
-                                <%= players[i].drops %>
-                            </td>
-                            <td>
-                                <%= players[i].throwAways %>
-                            </td>
+                            <th>Name</th>
+                            <th>Drops</th>
+                            <th>Throw Aways</th>
                         </tr>
-                        <% } %>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i < players.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <a href="/team-stats/<%= players[i].id %>">
+                                        <%= players[i].name %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= players[i].drops %>
+                                </td>
+                                <td>
+                                    <%= players[i].throwAways %>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                    <tfoot>
                         <tr class="teamStats">
                             <td>Team Total</td>
-                            <td><%= totalDrops %></td>
-                            <td><%= totalThrowAways %></td>
+                            <td>
+                                <%= totalDrops %>
+                            </td>
+                            <td>
+                                <%= totalThrowAways %>
+                            </td>
                         </tr>
-                </tbody>
-            </table>
+                    </tfoot>
+                </table>
+            
+        </div>
         </div>
 </body>
 <script src="/js/tablesort.js"></script>

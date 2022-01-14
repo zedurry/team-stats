@@ -2,12 +2,13 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %> 
 <body>
+    <div class="parent">
     <%- include('./partials/header.ejs') %> 
- <div class=show>
+    <div class="div2">
     <h2>
         <%=player.name%>
     </h2>
-   
+
     <ul> Stats:
     <li>Assists: <%=player.assists%></li>
     <li>Goals: <%=player.goals%></li>
@@ -15,6 +16,7 @@
     <li>Drops: <%=player.drops%></li>
     <li>Throw Aways: <%=player.throwAways%></li>
     </ul>
+</div>
 </div>
 
 </body>

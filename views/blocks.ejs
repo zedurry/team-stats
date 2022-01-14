@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %> 
-<%let totalBlocks = 0%> 
+<%- include('./partials/head.ejs') %>
+<%let totalBlocks=0%>
 
-    <%for (let i=0;i<players.length;i++){  %> 
-        <%totalBlocks += parseInt(players[i].blocks) }  %> 
+<%for (let i=0;i<players.length;i++){ %>
+    <%totalBlocks +=parseInt(players[i].blocks) } %>
 
 <body>
+    <div class="parent">
     <%- include('./partials/header.ejs') %>
-        <h2>Team Blocks</h2>
 
-        <div class="table">
+    <div class="div2">
+    <h2>Team Blocks</h2>
+
             <table class="table-sortable">
                 <thead>
                     <tr>
@@ -31,14 +33,19 @@
                             </td>
                         </tr>
                         <% } %>
+                </tbody>
+                <tfoot>
                     <tr class="teamStats">
                         <td>Team Total</td>
-                        <td><%= totalBlocks %></td>
+                        <td>
+                            <%= totalBlocks %>
+                        </td>
                     </tr>
-                </tbody>
+                </tfoot>
             </table>
-        </div>
+    </div> 
+    </div>
 </body>
-<script src="/js/tablesort.js"></script>
-</html>
+                <script src="/js/tablesort.js"></script>
 
+</html>
